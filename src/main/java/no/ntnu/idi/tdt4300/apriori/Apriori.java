@@ -2,7 +2,7 @@ package no.ntnu.idi.tdt4300.apriori;
 
 import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import com.sun.tools.doclets.formats.html.SplitIndexWriter;
-import org.apache.commons.cli.*;
+import org.apache.commons.cli.*;git
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -165,7 +165,7 @@ public class Apriori {
 
         String frequentSets = generateFrequentItemsets(transactions, support);
 
-
+        System.out.println(stringToSets(generateFrequentItemsets(transactions, support)));
 
         return "antecedent;consequent;confidence;support\n" +
                 "diapers;beer;0.6;0.5\n" +
@@ -336,14 +336,22 @@ public class Apriori {
     private static List<SortedSet<String>> stringToSets(String str){
 
         List<SortedSet<String>> freqSets = new ArrayList<SortedSet<String>>();
+        String[] lines;
 
-        for (int i = 0; i < str.length(); i++) {
+
+        lines = str.split("\n");
+
+        System.out.println(lines);
+
+        /*for (int i = 0; i < str.length(); i++) {
             if(str.charAt(i)==';' && Integer.parseInt(str.charAt(i-1)+"") == 1){
                 String item = str.substring(i+1, str.indexOf('\n'));
             }else if(str.charAt(i)==';' && Integer.parseInt(str.charAt(i-1)+"") > 1){
 
             }
-        }
+        }*/
+
+        return null;
 
     }
 
